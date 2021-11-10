@@ -1,0 +1,2 @@
+rootProject.name = "Registration&LoginWithSQLDB"
+include ':app'
