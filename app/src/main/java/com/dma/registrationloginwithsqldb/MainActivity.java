@@ -3,6 +3,7 @@ package com.dma.registrationloginwithsqldb;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 else {
                     Boolean checkUserData = dbHelper.insertUserData(cat_name,sub_cat_name, name_user, phone_user, address_user, date_user);
                     if (checkUserData){
+                        clearData();
                         Toast.makeText(MainActivity.this, "Data Inserted", Toast.LENGTH_LONG).show();
                     }
                     else {
@@ -63,28 +65,41 @@ public class MainActivity extends AppCompatActivity {
         View_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Cursor cursor = dbHelper.getData();
-                if (cursor.getCount() == 0){
-                    Toast.makeText(MainActivity.this, "Data Not Found", Toast.LENGTH_LONG).show();
-                    return;
-                }
 
-                StringBuffer stringBuffer = new StringBuffer();
-                while (cursor.moveToNext()){
-                    stringBuffer.append("Cat_Name: "+cursor.getString(0)+ "\n");
-                    stringBuffer.append("Sub_Cat_Name: "+cursor.getString(1)+ "\n");
-                    stringBuffer.append("Name: "+cursor.getString(2)+ "\n");
-                    stringBuffer.append("Phone: "+cursor.getString(3)+ "\n");
-                    stringBuffer.append("Address: "+cursor.getString(4)+ "\n");
-                    stringBuffer.append("Date: "+cursor.getString(5)+ "\n\n");
-                }
+                startActivity(new Intent(MainActivity.this,DisplayData.class));
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setCancelable(true);
-                builder.setTitle("User Details");
-                builder.setMessage(stringBuffer.toString());
-                builder.show();
+                /** for show in alert dialog box **/
+//                Cursor cursor = dbHelper.getData();
+//                if (cursor.getCount() == 0){
+//                    Toast.makeText(MainActivity.this, "Data Not Found", Toast.LENGTH_LONG).show();
+//                    return;
+//                }
+//
+//                StringBuffer stringBuffer = new StringBuffer();
+//                while (cursor.moveToNext()){
+//                    stringBuffer.append("Cat_Name: "+cursor.getString(0)+ "\n");
+//                    stringBuffer.append("Sub_Cat_Name: "+cursor.getString(1)+ "\n");
+//                    stringBuffer.append("Name: "+cursor.getString(2)+ "\n");
+//                    stringBuffer.append("Phone: "+cursor.getString(3)+ "\n");
+//                    stringBuffer.append("Address: "+cursor.getString(4)+ "\n");
+//                    stringBuffer.append("Date: "+cursor.getString(5)+ "\n\n");
+//                }
+//
+//                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+//                builder.setCancelable(true);
+//                builder.setTitle("User Details");
+//                builder.setMessage(stringBuffer.toString());
+//                builder.show();
             }
         });
+    }
+
+    private void clearData() {
+        category_name.setText("");
+        sub_category_name.setText("");
+        name.setText("");
+        phone.setText("");
+        address.setText("");
+        date.setText("");
     }
 }

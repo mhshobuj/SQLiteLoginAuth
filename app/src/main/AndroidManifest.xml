@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RegistrationLoginWithSQLDB">
-        <activity android:name=".SignInActivity"></activity>
+        <activity
+            android:name=".DetailsUsers"
+            android:exported="false" />
+        <activity
+            android:name=".DisplayData"
+            android:exported="false" />
+        <activity android:name=".SignInActivity" />
         <activity android:name=".RegistrationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

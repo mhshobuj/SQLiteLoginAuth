@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Mehedi-2021/DMA_Mehedi/RegistrationLoginWithSQLDB/app/src/main/res/layout/activity_details_users.xml" value="0.2421875" />
+        <entry key="..\:/Mehedi-2021/DMA_Mehedi/RegistrationLoginWithSQLDB/app/src/main/res/layout/activity_display_data.xml" value="0.2421875" />
         <entry key="..\:/Mehedi-2021/DMA_Mehedi/RegistrationLoginWithSQLDB/app/src/main/res/layout/activity_main.xml" value="0.2421875" />
+        <entry key="..\:/Mehedi-2021/DMA_Mehedi/RegistrationLoginWithSQLDB/app/src/main/res/layout/single_data_card_view.xml" value="0.2421875" />
       </map>
     </option>
   </component>

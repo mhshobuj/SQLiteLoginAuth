@@ -20,10 +20,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase myDb) {
         myDb.execSQL("create Table users(email TEXT primary key, password TEXT)");
 
-        myDb.execSQL("create Table usersdetails(category_name TEXT, sub_category_name TEXT, name TEXT," +
-                " phone TEXT primary key, address TEXT, date TEXT)");
-
-
+        myDb.execSQL("create Table usersdetails( id INTEGER primary key autoincrement, category_name TEXT, sub_category_name TEXT, name TEXT," +
+                " phone TEXT, address TEXT, date TEXT)");
     }
 
     @Override
@@ -64,7 +62,13 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public Cursor getData(){
         SQLiteDatabase myDB = this.getWritableDatabase();
-        Cursor cursor = myDB.rawQuery("select * from usersdetails", null);
+        Cursor cursor = myDB.rawQuery("select * from usersdetails order by id desc", null);
+        return cursor;
+    }
+
+    public Cursor getDataByID(String id){
+        SQLiteDatabase myDB = this.getWritableDatabase();
+        Cursor cursor = myDB.rawQuery("select * from usersdetails where id= ?", new String[] {id});
         return cursor;
     }
 
