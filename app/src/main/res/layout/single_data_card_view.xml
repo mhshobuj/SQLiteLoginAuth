@@ -65,6 +65,14 @@
             android:textSize="17sp"
             android:layout_marginTop="5dp"
             android:text="Date: "/>
+
+        <ImageView
+            android:id="@+id/delete_iv"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_baseline_delete_forever_24"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

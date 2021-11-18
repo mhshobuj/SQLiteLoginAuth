@@ -89,4 +89,9 @@ public class DBHelper extends SQLiteOpenHelper {
         else
             return false;
     }
+
+    public int deleteUser(int id) {
+        SQLiteDatabase myDb = this.getWritableDatabase();
+        return myDb.delete("usersdetails", "id=?", new String[] {String.valueOf(id)});
+    }
 }
